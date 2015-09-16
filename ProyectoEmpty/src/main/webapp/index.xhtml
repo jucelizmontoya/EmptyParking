@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <a jsf:outcome="/Pages/Administrador/Pais/List">Lista Países</a>
+                <br/>
+                <a jsf:outcome="/Pages/Administrador/Departamento/List">Lista Departamentos</a>
+                <br/>
+                <a jsf:outcome="/Pages/Administrador/Ciudad/List">Lista Ciudades</a>
+                <br/>
+                <a jsf:outcome="/Pages/Administrador/Rol/List">Lista Roles</a>
+                <br/>
+                <a jsf:outcome="/Pages/Administrador/TiposServicio/List">Lista Tipos de Servicio</a>
+                <br/>
+                <a jsf:outcome="/Pages/Administrador/Usuarios/List">Lista Usuarios</a>
+                <h:panelGroup rendered="#{!loginController.authenticated}">
+                    <form jsf:id="loginForm">
+                        <input type="email"
+                                                               placeholder="Correo Electrónico"
+                                                               required="true"
+                                                               jsf:value="#{loginController.username}"/>
+                                <input type="password"
+                                                               placeholder="Contraseña"
+                                                               required="true"
+                                                               jsf:value="#{loginController.password}"/>
+                                <button type="submit"
+                                                                 jsf:action="#{loginController.login}">
+                                        Ingresar 
+                                    </button>
+                            </form>
+                 </h:panelGroup>
+                <h:panelGroup rendered="#{loginController.authenticated}">
+                        <a jsf:outcome="/Pages/Administrador/Pais/List">Lista Países</a>
+                        <br/>
+                        <a jsf:outcome="/Pages/Administrador/Departamento/List">Lista Departamentos</a>
+                        <br/>
+                        <a jsf:outcome="/Pages/Administrador/Ciudad/List">Lista Ciudades</a>
+                        <br/>
+                        <a jsf:outcome="/Pages/Administrador/Rol/List">Lista Roles</a>
+                        <br/>
+                        <a jsf:outcome="/Pages/Administrador/TiposServicio/List">Lista Tipos de Servicio</a>
+                        <br/>
+                        <a jsf:outcome="/Pages/Administrador/Usuarios/List">Lista Usuarios</a>
+                        <form jsf:id="logoutForm">
+                            <a jsf:action="#{loginController.logout}">Salir</a>
+                            </form>
+                    </h:panelGroup>
+
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    </h:body>
+</html>
+
